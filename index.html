@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber-inspired Loader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="loader-container">
+        <div class="text-container">
+            <span class="text-left">UB</span><span class="text-right">ER</span>
+        </div>
+        <div class="car">
+            <svg viewBox="0 0 24 24" width="120" height="120">  <!-- Increased from 80 to 120 -->
+                <path d="M5,11L6.5,6.5H17.5L19,11M17.5,16A1.5,1.5 0 0,1 16,14.5A1.5,1.5 0 0,1 17.5,13A1.5,1.5 0 0,1 19,14.5A1.5,1.5 0 0,1 17.5,16M6.5,16A1.5,1.5 0 0,1 5,14.5A1.5,1.5 0 0,1 6.5,13A1.5,1.5 0 0,1 8,14.5A1.5,1.5 0 0,1 6.5,16M18.92,6C18.72,5.42 18.16,5 17.5,5H6.5C5.84,5 5.28,5.42 5.08,6L3,12V20A1,1 0 0,0 4,21H5A1,1 0 0,0 6,20V19H18V20A1,1 0 0,0 19,21H20A1,1 0 0,0 21,20V12L18.92,6Z"/>
+            </svg>
+        </div>
+    </div>
+    <header class="main-header">
+        <div class="logo-section">
+            <div class="logo">UBER</div>
+            <a href="#" class="about-link">About</a>
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="nav-link">Login</a>
+            <a href="#" class="nav-link">Sign up</a>
+            <button class="menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="background-text">UBER</div>
+        <div class="main-container">
+            <div class="form-section">
+                <div class="input-container">
+                    <input type="text" placeholder="Enter pickup location">
+                </div>
+                <div class="input-container">
+                    <input type="text" placeholder="Enter drop-off location">
+                </div>
+                <div class="input-container datetime-row">
+                    <input type="date" class="date-input">
+                    <input type="time" class="time-input">
+                </div>
+                <div class="input-container button-row">
+                    <button class="price-button">Get prices</button>
+                    <button class="login-button">Login to see activity</button>
+                </div>
+            </div>
+            <div class="map-section">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+        <script>
+            function initMap() {
+                const map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: -34.397, lng: 150.644 },
+                    zoom: 8,
+                    styles: [
+                        {
+                            "elementType": "geometry",
+                            "stylers": [{ "color": "#242f3e" }]
+                        },
+                        {
+                            "elementType": "labels.text.stroke",
+                            "stylers": [{ "color": "#242f3e" }]
+                        },
+                        {
+                            "elementType": "labels.text.fill",
+                            "stylers": [{ "color": "#746855" }]
+                        }
+                        // Add more styles as needed
+                    ]
+                });
+            }
+        </script>
+</body>
+</html>
